@@ -37,13 +37,13 @@ namespace HMS.EntityFrameworkCore
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Organization> Organizations { get; set; }
 
-        //public DbSet<Customer> Customers{get;set;}
-        //public DbSet<CustomerRoom> CustomerRooms{get;set;}
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerRoom> CustomerRooms { get; set; }
         public DbSet<Location> Locations{ get; set; }
         public DbSet<Nationality> Nationalities{ get; set; }
         public DbSet<Profession> Professions{ get; set; }
-        //public DbSet<PurposeOfVisit> purposeOfVisits{ get; set; }
-protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<PurposeOfVisit> purposeOfVisits { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /*
             builder.Entity<OrderItem>()
