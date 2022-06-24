@@ -23,6 +23,7 @@ namespace HMS.API.Dependencies
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             _services.AddTransient<ITestAppService, TestAppService>();
             _services.AddTransient<IRoomAppService, RoomAppService>();
+            _services.AddTransient<ILocationAppService, LocationAppService>();
 
 
             return _services;
