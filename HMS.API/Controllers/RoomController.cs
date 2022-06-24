@@ -11,7 +11,7 @@ namespace HMS.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoomController : Controller
+    public class RoomController : ControllerBase
     {
         private readonly IRoomAppService _roomAppService;
         public RoomController(IRoomAppService roomAppService)

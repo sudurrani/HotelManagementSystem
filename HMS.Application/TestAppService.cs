@@ -46,7 +46,7 @@ namespace HMS.Application
         {
             var entities = await _repository.GetAll().ToListAsync();
 
-            var testOutputDtos = _mapper.Map<List<TestOutputDto>>(entities);
+                var testOutputDtos = _mapper.Map<List<TestOutputDto>>(entities);
 
             _responseOutputDto.Success<IEnumerable<TestOutputDto>>(testOutputDtos);
             return _responseOutputDto;
