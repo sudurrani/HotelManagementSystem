@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HMS.Application.Shared.Dtos.Room;
 using HMS.Application.Shared.Dtos.Test;
 using HMS.Core.Entities;
 using System;
@@ -14,6 +15,7 @@ namespace HMS.Application.Mapper
         public EntityToOutputDtoMapper()
         {
             CreateMap<Test, TestOutputDto>();
+            CreateMap<Room, RoomOutputDto>();
         }
     }
 }
