@@ -24,11 +24,11 @@ namespace HMS.EntityFrameworkCore
         }
 
         public HMSDbContext(
-            DbContextOptions<HMSDbContext> options,            
+            DbContextOptions<HMSDbContext> options,
             IDateTime dateTime
             )
             : base(options)
-        {            
+        {
             _dateTime = dateTime;
         }
 
@@ -39,12 +39,51 @@ namespace HMS.EntityFrameworkCore
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerRoom> CustomerRooms { get; set; }
-        public DbSet<Location> Locations{ get; set; }
-        public DbSet<Nationality> Nationalities{ get; set; }
-        public DbSet<Profession> Professions{ get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Nationality> Nationalities { get; set; }
+        public DbSet<Profession> Professions { get; set; }
         public DbSet<PurposeOfVisit> purposeOfVisits { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Employee>().HasData(
+            new Employee
+            {   
+                Id = 1,
+                Name = "Muhammad Zeb",
+                CreatedBy = 1,
+                CreatedDateTime = DateTime.Now,
+                IsDeleted = false
+            });
+
+            modelBuilder.Entity<Role>().HasData(
+            new Role
+            {
+                Id = 1,
+                Name = "admin",
+                CreatedBy = 1,
+                CreatedDateTime = DateTime.Now,
+                IsDeleted = false
+            });
+            modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                Id = 1,
+                Username  = "admin",
+                Password = "123",
+                EmployeeId = 1,
+                RoleId   = 1,
+                CreatedBy = 1,
+                CreatedDateTime = DateTime.Now,
+                IsDeleted = false
+            });
+
             /*
             builder.Entity<OrderItem>()
                 .HasKey(s => new { s.OrderId, s.OrderItemId });
@@ -69,9 +108,9 @@ namespace HMS.EntityFrameworkCore
             }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {            
-            //optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;USER ID = sa; Password=P@kistan;");
-            optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;Integrated Security=True;");
+        {
+            optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;USER ID = sa; Password=P@kistan;");
+            //optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;Integrated Security=True;");
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-GIM92EE;Initial Catalog=HotelManagementSystem;USER ID = sa; Password=P@kistan;");
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

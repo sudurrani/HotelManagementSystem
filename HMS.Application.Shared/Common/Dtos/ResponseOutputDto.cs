@@ -25,7 +25,16 @@ namespace HMS.Application.Shared.Common.Dtos
             this.IsSuccess = false;
             this.Status = "Error";
             this.Message = message == null ? "An error occured while processing your request" : message;
-            this.resultJSON = null;
+            this.resultJSON = "{}";
+        }
+        public ResponseOutputDto Status401Unauthorized()
+        {
+            ResponseOutputDto responseOutputDto = new ResponseOutputDto();
+            responseOutputDto.IsSuccess = false;
+            responseOutputDto.Status = "Unauthorized";
+            responseOutputDto.Message = "You're Unauthorized either do not have valid token";
+            responseOutputDto.resultJSON = "{}";
+            return responseOutputDto;
         }
     }
 }

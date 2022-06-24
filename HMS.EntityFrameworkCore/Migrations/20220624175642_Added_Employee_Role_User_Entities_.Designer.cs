@@ -4,14 +4,16 @@ using HMS.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HMS.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(HMSDbContext))]
-    partial class HMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220624175642_Added_Employee_Role_User_Entities_")]
+    partial class Added_Employee_Role_User_Entities_
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,16 +191,6 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 6, 24, 23, 30, 30, 662, DateTimeKind.Local).AddTicks(9281),
-                            IsDeleted = false,
-                            Name = "Muhammad Zeb"
-                        });
                 });
 
             modelBuilder.Entity("HMS.Core.Entities.Location", b =>
@@ -459,16 +451,6 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 6, 24, 23, 30, 30, 664, DateTimeKind.Local).AddTicks(7849),
-                            IsDeleted = false,
-                            Name = "admin"
-                        });
                 });
 
             modelBuilder.Entity("HMS.Core.Entities.Room", b =>
@@ -601,19 +583,6 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 6, 24, 23, 30, 30, 664, DateTimeKind.Local).AddTicks(9331),
-                            EmployeeId = 1L,
-                            IsDeleted = false,
-                            Password = "123",
-                            RoleId = 1L,
-                            Username = "admin"
-                        });
                 });
 
             modelBuilder.Entity("HMS.Core.Entities.Customer", b =>
