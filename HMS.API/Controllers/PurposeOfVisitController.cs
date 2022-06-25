@@ -1,5 +1,5 @@
 ﻿using HMS.Application.Shared.Common.Dtos;
-using HMS.Application.Shared.Dtos.Location;
+using HMS.Application.Shared.Dtos.PurposeOfVisit;
 using HMS.Application.Shared.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,20 +13,19 @@ namespace HMS.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationController : ControllerBase
+    public class PurposeOfVisitController : ControllerBase
     {
-        private readonly ILocationAppService _locationAppService;
-        public LocationController(ILocationAppService locationAppService)
+        private readonly IPurposeOfVisitAppService _purposeOfVisitAppService;
+        public PurposeOfVisitController(IPurposeOfVisitAppService purposeOfVisitAppService)
         {
-            _locationAppService = locationAppService;
-
+            _purposeOfVisitAppService = purposeOfVisitAppService;
         }
-        [Route("GetAll")]   
+        [Route("GetAll")]
         [Produces(typeof(ResponseOutputDto))]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _locationAppService.GetAll();
+            var response = await _purposeOfVisitAppService.GetAll();
             return Ok(response);
         }
         [Route("GetById/{id}")]
@@ -34,23 +33,23 @@ namespace HMS.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
-            var response = await _locationAppService.GetById(id);
+            var response = await _purposeOfVisitAppService.GetById(id);
             return Ok(response);
         }
         [Route("Add")]
         [Produces(typeof(ResponseOutputDto))]
         [HttpPost]
-        public async Task<IActionResult> Add(LocationInputDto locationInputDto)
+        public async Task<IActionResult> Add(PurposeOfVisitInputDto purposeOfVisitInputDto)
         {
-            var response = await _locationAppService.Create(locationInputDto);
+            var response = await _purposeOfVisitAppService.Create(purposeOfVisitInputDto);
             return Ok(response);
         }
         [Route("Update")]
         [Produces(typeof(ResponseOutputDto))]
         [HttpPost]
-        public async Task<IActionResult> Update(LocationInputDto locationInputDto)
+        public async Task<IActionResult> Update(PurposeOfVisitInputDto purposeOfVisitInputDto)
         {
-            var response = await _locationAppService.Update(locationInputDto);
+            var response = await _purposeOfVisitAppService.Update(purposeOfVisitInputDto);
             return Ok(response);
         }
         [Route("Delete")]
@@ -58,7 +57,7 @@ namespace HMS.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(long id)
         {
-            var response = await _locationAppService.Delete(id);
+            var response = await _purposeOfVisitAppService.Delete(id);
             return Ok(response);
         }
     }
