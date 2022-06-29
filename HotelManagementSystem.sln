@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.Application.Shared", "H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.EntityFrameworkCore", "HMS.EntityFrameworkCore\HMS.EntityFrameworkCore.csproj", "{C2D3BA08-D8B6-4E82-BF08-CDE42DBFB4EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.API", "HMS.API\HMS.API.csproj", "{75821492-289E-4D7A-AC52-02A89AC6D416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMS.API", "HMS.API\HMS.API.csproj", "{75821492-289E-4D7A-AC52-02A89AC6D416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
