@@ -4,14 +4,16 @@ using HMS.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HMS.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(HMSDbContext))]
-    partial class HMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220703103244_addemployeefields")]
+    partial class addemployeefields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,12 +166,6 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.Property<string>("CNIC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ContactNumber1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactNumber2")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
 
@@ -213,7 +209,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 3, 15, 47, 12, 727, DateTimeKind.Local).AddTicks(2952),
+                            CreatedDateTime = new DateTime(2022, 7, 3, 15, 32, 43, 243, DateTimeKind.Local).AddTicks(4076),
                             IsDeleted = false,
                             Name = "Muhammad Zeb"
                         });
@@ -483,7 +479,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 3, 15, 47, 12, 732, DateTimeKind.Local).AddTicks(366),
+                            CreatedDateTime = new DateTime(2022, 7, 3, 15, 32, 43, 246, DateTimeKind.Local).AddTicks(3535),
                             IsDeleted = false,
                             Name = "admin"
                         });
@@ -625,7 +621,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 3, 15, 47, 12, 732, DateTimeKind.Local).AddTicks(4330),
+                            CreatedDateTime = new DateTime(2022, 7, 3, 15, 32, 43, 246, DateTimeKind.Local).AddTicks(7441),
                             EmployeeId = 1L,
                             IsDeleted = false,
                             Password = "123",

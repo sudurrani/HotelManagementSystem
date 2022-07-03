@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using HMS.Application.Shared.Dtos.Employee;
 using HMS.Application.Shared.Dtos.Location;
+using HMS.Application.Shared.Dtos.Nationality;
 using HMS.Application.Shared.Dtos.Profession;
 using HMS.Application.Shared.Dtos.Room;
 using HMS.Application.Shared.Dtos.Test;
@@ -20,6 +22,9 @@ namespace HMS.Application.Mapper
             CreateMap<RoomInputDto, Room>();
             CreateMap<LocationInputDto, Location>();
             CreateMap<ProfessionInputDto, Profession>();
+            CreateMap<NationalityInputDto, Nationality>();
+            CreateMap<EmployeeInputDto, Employee>();
+
         }
     }
 }

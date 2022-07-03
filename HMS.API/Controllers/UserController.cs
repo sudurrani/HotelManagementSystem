@@ -41,9 +41,9 @@ namespace HMS.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("Authenticate")]
-        public IActionResult Authenticate(UserInputDto userInputDto)
+        public async Task<IActionResult> Authenticate(UserInputDto userInputDto)
         {
-            var token = _userAppService.Authenticate(userInputDto);
+            var token = await _userAppService.Authenticate(userInputDto);
 
             if (token == null)
             {

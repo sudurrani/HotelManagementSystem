@@ -10,5 +10,11 @@ namespace HMS.Application.Shared.Dtos.Employee
   public  class EmployeeInputDto:AuditedDto
     {
         public string Name { get; set; }
+        public string CNIC { get; set; }
+        public string FatherName { get; set; }
+        public string PermanentAddess { get; set; }
+        public string ResidentialAddress { get; set; }
+        public string ContactNumber1 { get; set; }
+        public string ContactNumber2 { get; set; }
     }
 }
