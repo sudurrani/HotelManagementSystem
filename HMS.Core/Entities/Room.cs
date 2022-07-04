@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace HMS.Core.Entities
 {
-   public class Room:AuditedEntity
+    public class Room : AuditedEntity
     {
- 
-            [Column(TypeName="nvarchar(50)")]
+
+        [Column(TypeName = "nvarchar(50)")]
         public string Number { get; set; }
 
-        [Column(TypeName ="decimal(18,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Rent { get; set; }
     }
 }

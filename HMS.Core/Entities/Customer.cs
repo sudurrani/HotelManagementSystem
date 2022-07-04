@@ -11,6 +11,11 @@ namespace HMS.Core.Entities
 {
     public class Customer : AuditedEntity
     {
+        [Column(TypeName = "nvarchar(20)")]
+        public string NIC { get; set; }
+        [Column(TypeName = "nvarchar(20)")]
+        public string PassportNo { get; set; }
+
         [Column(TypeName = "nvarchar(5)")]
         public string Title { get; set; }
 
@@ -24,10 +29,7 @@ namespace HMS.Core.Entities
         public virtual Nationality Nationality { get; set; }
         [ForeignKey("ProfessionId")]
         public virtual Profession Profession { get; set; }
-        [Column(TypeName = "nvarchar(20)")]
-        public string NIC { get; set; }
-        [Column(TypeName = "nvarchar(20)")]
-        public string PassportNo { get; set; }
+      
         [Required]
         [Column(TypeName = "nvarchar(15)")]
         public string ContactNumber { get; set; }
@@ -36,6 +38,7 @@ namespace HMS.Core.Entities
         [Column(TypeName = "nvarchar(200)")]
         public string HomeAddress { get; set; }
 
+        public ICollection<CustomerCheckIn> CustomerCheckIn { get; set; }
     }
 
 }
