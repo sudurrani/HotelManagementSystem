@@ -35,7 +35,7 @@ namespace HMS.API
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<HMSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
-            services.AddDbContext<HMSDbContext>(options => options.UseSqlServer("Server=.;Database=HotelManagementSystem;USER ID = sa; Password=P@kistan;"));
+            services.AddDbContext<HMSDbContext>(options => options.UseSqlServer("Server=.;Database=HotelManagementSystem;Integrated Security=True;"));
             // Register the Swagger generator, defining 1 or more Swagger documents
             //services.AddSwaggerGen(c =>
             //{
@@ -107,7 +107,7 @@ namespace HMS.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,HMSDbContext hmsDbContext)
         {
-            // migrate any database changes on startup (includes initial db creation)
+            // migrate any database changes on startup (includes initial db creation)X 
             hmsDbContext.Database.Migrate();
             //Added this code into Startup -> Configure method to allow request from any site
             app.UseCors(x => x

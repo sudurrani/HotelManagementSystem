@@ -1,6 +1,7 @@
 ﻿using HMS.Application.Shared.Common.Dtos;
 using HMS.Application.Shared.Dtos.Test;
 using HMS.Application.Shared.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace HMS.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TestController : ControllerBase
