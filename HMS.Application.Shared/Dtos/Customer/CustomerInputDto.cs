@@ -26,7 +26,7 @@ namespace HMS.Application.Shared.Dtos.Customer
 
         public string PassportNo { get; set; }
 
-        public string ContactNumber { get; set; }
+        public string ContactNo { get; set; }
         public DateTime DOB { get; set; }
 
 

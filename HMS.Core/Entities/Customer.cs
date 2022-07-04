@@ -32,7 +32,7 @@ namespace HMS.Core.Entities
       
         [Required]
         [Column(TypeName = "nvarchar(15)")]
-        public string ContactNumber { get; set; }
+        public string ContactNo { get; set; }
         public DateTime DOB { get; set; }
 
         [Column(TypeName = "nvarchar(200)")]

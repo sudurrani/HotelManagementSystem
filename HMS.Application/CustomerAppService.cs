@@ -73,7 +73,14 @@ namespace HMS.Application
             _responseOutputDto.Success<CustomerOutputDto>(customerOutputDto);
             return _responseOutputDto;
         }
+        public async Task<ResponseOutputDto> GetByNIC(string nic)
+        {
+            var entity = await _repository.GetAll().Where(filter => filter.NIC == nic).FirstOrDefaultAsync();
+            var customerOutputDto = _mapper.Map<CustomerOutputDto>(entity);
 
+            _responseOutputDto.Success<CustomerOutputDto>(customerOutputDto);
+            return _responseOutputDto;
+        }
         public async Task<ResponseOutputDto> Update(CustomerInputDto customerInputDto)
         {
             var entity = _mapper.Map<Customer>(customerInputDto);

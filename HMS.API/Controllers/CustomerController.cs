@@ -61,5 +61,13 @@ namespace HMS.API.Controllers
             var response = await _customerAppService.Delete(id);
             return Ok(response);
         }
+        [Route("GetByNIC/{nic}")]
+        [Produces(typeof(ResponseOutputDto))]
+        [HttpGet]
+        public async Task<IActionResult> GetByNIC(string nic )
+        {
+            var response = await _customerAppService.GetByNIC(nic);
+            return Ok(response);
+        }
     }
 }

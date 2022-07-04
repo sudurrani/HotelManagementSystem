@@ -13,6 +13,7 @@ namespace HMS.Application.Shared.Interfaces
         Task<ResponseOutputDto> GetAll();
 
         Task<ResponseOutputDto> GetById(long id);
+        Task<ResponseOutputDto> GetByNIC(string nic);
 
         Task<ResponseOutputDto> Create(CustomerInputDto customerInputDto);
 
