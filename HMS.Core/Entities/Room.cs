@@ -17,5 +17,7 @@ namespace HMS.Core.Entities
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Rent { get; set; }
+
+        public bool IsAllotted { get; set; }
     }
 }

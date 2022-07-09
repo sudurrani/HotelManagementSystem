@@ -17,5 +17,6 @@ namespace HMS.Application.Shared.Common.Interfaces
         Task<long> Update(TEntity entity);
 
         Task<long> Delete(TEntity entity);
+        Task<long> AddRange(List<TEntity> entity);
     }        
 }

@@ -61,5 +61,13 @@ namespace HMS.API.Controllers
             var response = await _roomAppService.Delete(id);
             return Ok(response);
         }
+        [Route("GetAvailable")]
+        [Produces(typeof(ResponseOutputDto))]
+        [HttpGet]
+        public async Task<IActionResult> GetAvailable()
+        {
+            var response = await _roomAppService.GetAvailable();
+            return Ok(response);
+        }
     }
 }

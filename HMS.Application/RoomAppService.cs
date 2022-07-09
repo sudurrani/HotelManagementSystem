@@ -92,5 +92,14 @@ namespace HMS.Application
             }
             return _responseOutputDto;
         }
+        public async Task<ResponseOutputDto> GetAvailable()
+        {
+            var entities = await _repository.GetAll().Where(filter => filter.IsAllotted == false).ToListAsync();
+
+            var roomOutputDtos = _mapper.Map<List<RoomOutputDto>>(entities);
+
+            _responseOutputDto.Success<IEnumerable<RoomOutputDto>>(roomOutputDtos);
+            return _responseOutputDto;
+        }
     }
 }
