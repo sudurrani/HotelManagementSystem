@@ -22,6 +22,14 @@ namespace HMS.API.Controllers
             _customerCheckInAppService = customerCheckInAppService;
 
         }
+        [Route("GetAll")]
+        [Produces(typeof(ResponseOutputDto))]
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var response = await _customerCheckInAppService.GetAll();
+            return Ok(response);
+        }
 
         [Route("Add")]
         [Produces(typeof(ResponseOutputDto))]

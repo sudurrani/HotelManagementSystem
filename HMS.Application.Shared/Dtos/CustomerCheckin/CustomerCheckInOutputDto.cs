@@ -32,6 +32,7 @@ namespace HMS.Application.Shared.Dtos.CustomerCheckin
                    
 
         public long CustomerId { get; set; }
+        public string Customer { get; set; }
 
         public string Rooms { get; set; }
     }

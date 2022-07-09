@@ -10,12 +10,15 @@ namespace HMS.Application.Shared.Interfaces
 {
     public interface ICustomerCheckInAppService
     {
+        Task<ResponseOutputDto> GetAll();
         Task<ResponseOutputDto> GetByCustomerId(long customerId);
 
         //Task<ResponseOutputDto> GetById(long id);
 
         Task<ResponseOutputDto> Create(CustomerCheckInInputDto customerCheckInInputDto);
-
         
+
+
+
     }
 }
