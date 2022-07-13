@@ -109,8 +109,8 @@ namespace HMS.EntityFrameworkCore
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;USER ID = sa; Password=P@kistan;");
-            //optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;Integrated Security=True;");
+           // optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;USER ID = sa; Password=P@kistan;");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=HotelManagementSystem;Integrated Security=True;");
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-GIM92EE;Initial Catalog=HotelManagementSystem;USER ID = sa; Password=P@kistan;");
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
