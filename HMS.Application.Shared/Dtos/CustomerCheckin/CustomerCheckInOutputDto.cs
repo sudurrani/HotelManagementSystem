@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace HMS.Application.Shared.Dtos.CustomerCheckin
 {
     public class CustomerCheckInOutputDto :AuditedDto
-    {        
+    {
+        public string VoucherNumber { get; set; }
         public DateTime CheckIn { get; set; }
 
 
@@ -35,5 +36,6 @@ namespace HMS.Application.Shared.Dtos.CustomerCheckin
         public string Customer { get; set; }
 
         public string Rooms { get; set; }
+        public string VourcherNumber { get; set; }
     }
 }

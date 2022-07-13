@@ -12,6 +12,8 @@ namespace HMS.Core.Entities
     public class CustomerCheckIn : AuditedEntity
     {
         [Required]
+        public string VoucherNumber { get; set; }
+        [Required]
         public DateTime CheckIn { get; set; }
 
 

@@ -11,6 +11,7 @@ namespace HMS.Application.Shared.Dtos.CustomerCheckin
 {
     public class CustomerCheckInInputDto : AuditedDto
     {
+        public string VoucherNumber { get; set; }
         public DateTime CheckIn { get; set; }
 
 

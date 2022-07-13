@@ -16,7 +16,7 @@ namespace HMS.Application.Shared.Interfaces
         //Task<ResponseOutputDto> GetById(long id);
 
         Task<ResponseOutputDto> Create(CustomerCheckInInputDto customerCheckInInputDto);
-        
+        Task<ResponseOutputDto> GetNextVoucherNumber();
 
 
 

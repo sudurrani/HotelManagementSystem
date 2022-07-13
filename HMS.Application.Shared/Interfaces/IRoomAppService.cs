@@ -20,6 +20,7 @@ namespace HMS.Application.Shared.Interfaces
 
         Task<ResponseOutputDto> Delete(long id);
         Task<ResponseOutputDto> GetAvailable();
+        Task<ResponseOutputDto> UpdateRange(List<RoomInputDto> roomInputDtos);
 
     }
 }

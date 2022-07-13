@@ -48,5 +48,13 @@ namespace HMS.API.Controllers
             var response = await _customerCheckInAppService.GetByCustomerId(customerId);
             return Ok(response);
         }
+        [Route("GetNextVoucherNumber")]
+        [Produces(typeof(ResponseOutputDto))]
+        [HttpGet]
+        public async Task<IActionResult> GetNextVoucherNumber()
+        {
+            var response = await _customerCheckInAppService.GetNextVoucherNumber();
+            return Ok(response);
+        }
     }
 }
