@@ -29,7 +29,7 @@ namespace HMS.Application
             var entityId = await _repository.Create(entity);
             if (entityId > 0)
             {
-                customerInputDto.Id = entityId;
+                customerInputDto.Id = entity.Id;
                 _responseOutputDto.Success<CustomerInputDto>(customerInputDto);
             }
             else

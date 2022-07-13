@@ -78,5 +78,16 @@ namespace HMS.EntityFrameworkCore
             _dbContext.Set<TEntity>().Update(entity);
             return await _dbContext.SaveChangesAsync();
         }
+        public async Task<long> AddRange(List<TEntity> entity)
+        {
+            _dbContext.AddRange(entity);
+            var result = await _dbContext.SaveChangesAsync();
+            return result;
+        }
+        public async Task<long> UpdateRange(List<TEntity> entity)
+        {
+            _dbContext.Set<TEntity>().UpdateRange(entity);
+            return await _dbContext.SaveChangesAsync();
+        }
     }
 }

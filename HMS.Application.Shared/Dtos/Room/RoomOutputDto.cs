@@ -11,5 +11,6 @@ namespace HMS.Application.Shared.Dtos.Room
     {
         public string Number { get; set; }
         public decimal Rent { get; set; }
+        public bool IsAllotted { get; set; }
     }
 }

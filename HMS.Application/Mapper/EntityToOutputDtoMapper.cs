@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using HMS.Application.Shared.Dtos.Customer;
+using HMS.Application.Shared.Dtos.CustomerCheckin;
+using HMS.Application.Shared.Dtos.CustomerCheckInRoom;
 using HMS.Application.Shared.Dtos.Employee;
 using HMS.Application.Shared.Dtos.Location;
 using HMS.Application.Shared.Dtos.Nationality;
@@ -26,6 +28,8 @@ namespace HMS.Application.Mapper
             CreateMap<Nationality, NationalityOutputDto>();
             CreateMap<Employee, EmployeeOutputDto>();
             CreateMap<Customer, CustomerOutputDto>();
+            CreateMap<CustomerCheckIn, CustomerCheckInOutputDto>();
+            CreateMap<CustomerCheckInRoom, CustomerCheckInRoomOutputDto>();
         }
     }
 }

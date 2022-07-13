@@ -4,14 +4,16 @@ using HMS.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HMS.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(HMSDbContext))]
-    partial class HMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220713081855_Add_VoucherNumber_To_CustomerCheckIn_entity")]
+    partial class Add_VoucherNumber_To_CustomerCheckIn_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -600,7 +602,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 4, 16, 33, 9, 812, DateTimeKind.Local).AddTicks(7089),
+                            CreatedDateTime = new DateTime(2022, 7, 13, 13, 18, 54, 328, DateTimeKind.Local).AddTicks(4488),
                             IsDeleted = false,
                             Name = "admin"
                         });
@@ -745,7 +747,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 4, 16, 33, 9, 812, DateTimeKind.Local).AddTicks(8569),
+                            CreatedDateTime = new DateTime(2022, 7, 13, 13, 18, 54, 328, DateTimeKind.Local).AddTicks(5907),
                             EmployeeId = 1L,
                             IsDeleted = false,
                             Password = "123",

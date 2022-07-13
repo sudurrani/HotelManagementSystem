@@ -77,6 +77,21 @@ namespace HMS.Application
             }
             return _responseOutputDto;
         }
+        public async Task<ResponseOutputDto> UpdateRange(List<RoomInputDto> roomInputDtos)
+        {
+            var entities = _mapper.Map<List<Room>>(roomInputDtos);
+            var entityId = await _repository.UpdateRange(entities);
+            if (entityId > 0)
+            {
+                //customerInputDto.Id = entityId;
+                _responseOutputDto.Success<List<RoomInputDto>>(roomInputDtos);
+            }
+            else
+            {
+                _responseOutputDto.Error();
+            }
+            return _responseOutputDto;
+        }
         public async Task<ResponseOutputDto> Delete(long id)
         {
             var entity = await _repository.GetById(id);
@@ -90,6 +105,15 @@ namespace HMS.Application
             {
                 _responseOutputDto.Error();
             }
+            return _responseOutputDto;
+        }
+        public async Task<ResponseOutputDto> GetAvailable()
+        {
+            var entities = await _repository.GetAll().Where(filter => filter.IsAllotted == false).ToListAsync();
+
+            var roomOutputDtos = _mapper.Map<List<RoomOutputDto>>(entities);
+
+            _responseOutputDto.Success<IEnumerable<RoomOutputDto>>(roomOutputDtos);
             return _responseOutputDto;
         }
     }

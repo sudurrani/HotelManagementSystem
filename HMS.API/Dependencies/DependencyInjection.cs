@@ -33,6 +33,8 @@ namespace HMS.API.Dependencies
             _services.AddTransient<IRoleAppService, RoleAppService>();
             _services.AddTransient<ICustomerAppService, CustomerAppService>();
             _services.AddTransient<ICustomerRoomAppService, CustomerRoomAppService>();
+            _services.AddTransient<ICustomerCheckInAppService, CustomerCheckInAppService>();
+            _services.AddTransient<ICustomerCheckInRoomAppService, CustomerCheckInRoomAppService>();
 
 
             return _services;

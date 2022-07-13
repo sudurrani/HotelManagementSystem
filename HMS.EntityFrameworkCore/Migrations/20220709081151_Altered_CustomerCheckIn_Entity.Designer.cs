@@ -4,14 +4,16 @@ using HMS.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HMS.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(HMSDbContext))]
-    partial class HMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220709081151_Altered_CustomerCheckIn_Entity")]
+    partial class Altered_CustomerCheckIn_Entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,11 +125,17 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.Property<DateTime?>("DeletedDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<long?>("DepartureLocationId")
+                        .HasColumnType("bigint");
+
                     b.Property<long?>("FromLocationId")
                         .HasColumnType("bigint");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<long?>("LocationId")
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("Paid")
                         .HasColumnType("decimal(18,2)");
@@ -151,58 +159,15 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.Property<DateTime?>("UpdatedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("VoucherNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("CustomerCheckIns");
-                });
+                    b.HasIndex("DepartureLocationId");
 
-            modelBuilder.Entity("HMS.Core.Entities.CustomerCheckInRoom", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .UseIdentityColumn();
+                    b.HasIndex("LocationId");
 
-                    b.Property<long>("CreatedBy")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("CustomerCheckInId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeletedBy")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<long>("RoomId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("UpdatedBy")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CustomerCheckInId");
-
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("CustomerCheckInRooms");
+                    b.ToTable("CustomerCheckIn");
                 });
 
             modelBuilder.Entity("HMS.Core.Entities.CustomerRoom", b =>
@@ -330,7 +295,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 13, 13, 18, 54, 324, DateTimeKind.Local).AddTicks(523),
+                            CreatedDateTime = new DateTime(2022, 7, 9, 13, 11, 50, 718, DateTimeKind.Local).AddTicks(789),
                             IsDeleted = false,
                             Name = "Muhammad Zeb"
                         });
@@ -600,7 +565,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 4, 16, 33, 9, 812, DateTimeKind.Local).AddTicks(7089),
+                            CreatedDateTime = new DateTime(2022, 7, 9, 13, 11, 50, 720, DateTimeKind.Local).AddTicks(8682),
                             IsDeleted = false,
                             Name = "admin"
                         });
@@ -745,7 +710,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 4, 16, 33, 9, 812, DateTimeKind.Local).AddTicks(8569),
+                            CreatedDateTime = new DateTime(2022, 7, 9, 13, 11, 50, 721, DateTimeKind.Local).AddTicks(650),
                             EmployeeId = 1L,
                             IsDeleted = false,
                             Password = "123",
@@ -777,26 +742,19 @@ namespace HMS.EntityFrameworkCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("HMS.Core.Entities.Location", "DepartureLocation")
+                        .WithMany()
+                        .HasForeignKey("DepartureLocationId");
+
+                    b.HasOne("HMS.Core.Entities.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId");
+
                     b.Navigation("Customer");
-                });
 
-            modelBuilder.Entity("HMS.Core.Entities.CustomerCheckInRoom", b =>
-                {
-                    b.HasOne("HMS.Core.Entities.CustomerCheckIn", "CustomerCheckIn")
-                        .WithMany()
-                        .HasForeignKey("CustomerCheckInId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("DepartureLocation");
 
-                    b.HasOne("HMS.Core.Entities.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CustomerCheckIn");
-
-                    b.Navigation("Room");
+                    b.Navigation("Location");
                 });
 
             modelBuilder.Entity("HMS.Core.Entities.CustomerRoom", b =>

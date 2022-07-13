@@ -48,6 +48,8 @@ namespace HMS.EntityFrameworkCore
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public DbSet<CustomerCheckIn> CustomerCheckIns { get; set; }
+        public DbSet<CustomerCheckInRoom> CustomerCheckInRooms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
