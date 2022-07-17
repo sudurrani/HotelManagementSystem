@@ -3,6 +3,8 @@ using HMS.Application.Shared.Dtos.Customer;
 using HMS.Application.Shared.Dtos.CustomerCheckin;
 using HMS.Application.Shared.Dtos.CustomerCheckInRoom;
 using HMS.Application.Shared.Dtos.Employee;
+using HMS.Application.Shared.Dtos.FoodType;
+using HMS.Application.Shared.Dtos.FoodTypeDetail;
 using HMS.Application.Shared.Dtos.Location;
 using HMS.Application.Shared.Dtos.Nationality;
 using HMS.Application.Shared.Dtos.Profession;
@@ -30,6 +32,8 @@ namespace HMS.Application.Mapper
             CreateMap<CustomerInputDto, Customer>();
             CreateMap<CustomerCheckInInputDto, CustomerCheckIn>();
             CreateMap<CustomerCheckInRoomInputDto, CustomerCheckInRoom>();
+            CreateMap<FoodTypeInputDto, FoodType>();
+            CreateMap<FoodTypeDetailInputDto, FoodTypeDetail>();
 
         }
     }

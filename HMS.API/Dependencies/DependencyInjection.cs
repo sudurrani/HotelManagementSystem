@@ -35,7 +35,8 @@ namespace HMS.API.Dependencies
             _services.AddTransient<ICustomerRoomAppService, CustomerRoomAppService>();
             _services.AddTransient<ICustomerCheckInAppService, CustomerCheckInAppService>();
             _services.AddTransient<ICustomerCheckInRoomAppService, CustomerCheckInRoomAppService>();
-
+            _services.AddTransient<IFoodTypeAppService, FoodTypeAppService>();
+            _services.AddTransient<IFoodTypeDetailAppService, FoodTypeDetailAppService>();
 
             return _services;
         }

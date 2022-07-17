@@ -4,14 +4,16 @@ using HMS.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HMS.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(HMSDbContext))]
-    partial class HMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220713154345_addFoodtypeAndFoodTypeDetails")]
+    partial class addFoodtypeAndFoodTypeDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -330,7 +332,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 16, 1, 57, 17, 507, DateTimeKind.Local).AddTicks(2227),
+                            CreatedDateTime = new DateTime(2022, 7, 13, 20, 43, 43, 568, DateTimeKind.Local).AddTicks(7882),
                             IsDeleted = false,
                             Name = "Muhammad Zeb"
                         });
@@ -393,7 +395,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.Property<DateTime?>("DeletedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<long?>("FoodTypeId")
+                    b.Property<long?>("FoodId")
                         .HasColumnType("bigint");
 
                     b.Property<bool>("IsDeleted")
@@ -407,9 +409,6 @@ namespace HMS.EntityFrameworkCore.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<long?>("UpdatedBy")
                         .HasColumnType("bigint");
 
@@ -418,7 +417,7 @@ namespace HMS.EntityFrameworkCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FoodTypeId");
+                    b.HasIndex("FoodId");
 
                     b.ToTable("FoodTypeDetails");
                 });
@@ -687,7 +686,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 16, 1, 57, 17, 513, DateTimeKind.Local).AddTicks(505),
+                            CreatedDateTime = new DateTime(2022, 7, 13, 20, 43, 43, 573, DateTimeKind.Local).AddTicks(3682),
                             IsDeleted = false,
                             Name = "admin"
                         });
@@ -832,7 +831,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                         {
                             Id = 1L,
                             CreatedBy = 1L,
-                            CreatedDateTime = new DateTime(2022, 7, 16, 1, 57, 17, 513, DateTimeKind.Local).AddTicks(5096),
+                            CreatedDateTime = new DateTime(2022, 7, 13, 20, 43, 43, 573, DateTimeKind.Local).AddTicks(7843),
                             EmployeeId = 1L,
                             IsDeleted = false,
                             Password = "123",
@@ -913,7 +912,7 @@ namespace HMS.EntityFrameworkCore.Migrations
                 {
                     b.HasOne("HMS.Core.Entities.FoodType", "Food")
                         .WithMany()
-                        .HasForeignKey("FoodTypeId");
+                        .HasForeignKey("FoodId");
 
                     b.Navigation("Food");
                 });

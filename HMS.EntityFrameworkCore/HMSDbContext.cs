@@ -51,6 +51,8 @@ namespace HMS.EntityFrameworkCore
         public DbSet<CustomerCheckIn> CustomerCheckIns { get; set; }
         public DbSet<CustomerCheckInRoom> CustomerCheckInRooms { get; set; }
 
+        public DbSet<FoodType> FoodTypes { get; set; }
+        public DbSet<FoodTypeDetail> FoodTypeDetails { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
